@@ -1,0 +1,13 @@
+﻿@model IEnumerable<CustomerEntity>
+
+<h1>List Customers</h1>
+<ul>
+    @foreach (CustomerEntity customerEntity in Model)
+    {
+            <li>@customerEntity.Name - @customerEntity.Age</li>
+    }
+</ul>
+
+<a asp-controller="Customer" asp-action="Index">
+        Customer support page</a>
+
