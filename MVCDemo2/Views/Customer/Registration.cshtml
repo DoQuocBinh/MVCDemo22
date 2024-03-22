@@ -1,13 +1,18 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+
 @{
+    List<SelectListItem> items = new List<SelectListItem>();
+    items.Add(new SelectListItem { Text = "Viet Nam", Value = "0" });
+    items.Add(new SelectListItem { Text = "China", Value = "1" });
+    ViewBag.countryList = items;
 }
+
 @model MVCDemo2.Models.CustomerEntity
 <h1>Customer Registration</h1>
-
-@using(Html.BeginForm("Register","Customer",FormMethod.Post))
-{
+@using (Html.BeginForm("Register","Customer",FormMethod.Post))
+    {
     <table>
         <tr>
             <td>Name</td>
@@ -21,6 +26,10 @@
             <td>Age</td>
             <td>@Html.CheckBoxFor(m => m.isAcceptingNews)</td>
         </tr>
+       <tr>
+           <td>Country</td>
+           <td> @Html.DropDownList("countryList")</td>
+       </tr>
         <tr>
             <td rowspan="2">
                 <input type="submit" value="Register" />
